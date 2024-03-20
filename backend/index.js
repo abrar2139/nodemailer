@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const dotenv = require("dotenv");
 const cors = require("cors")
 
+const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 var corsOptions = {
@@ -20,8 +20,8 @@ app.listen(Port,
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
     auth: {
-    user: SELL,
-    pass: PASS_KEY,
+    user: process.env.SELL,
+    pass: process.env.PASS_KEY,
   },
 });
 
@@ -39,7 +39,7 @@ router.post("/contact", (req, res) => {
   const message = req.body.message;
   const mail = {
     from: name,
-    to: SELL,
+    to: process.env.SELL,
     subject: "Contact Form Submission",
     html: `
             <p>Name: ${name}</p>
