@@ -11,12 +11,17 @@ const app = express();
 //   corsOptions
 // };
 
-app.use(cors({
-  origin: 'http://localhost:3000'
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use("/", router);
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 app.listen(Port, 
 () => console.log(`Server is runining on port ${Port}`));
 
