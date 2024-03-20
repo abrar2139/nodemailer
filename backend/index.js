@@ -11,7 +11,10 @@ const app = express();
 //   corsOptions
 // };
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://nodemailer-frontend.vercel.app'
+}));
+
 
 app.use(express.json());
 app.use("/", router);
