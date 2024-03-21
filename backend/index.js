@@ -13,9 +13,9 @@ const app = express();
 
 app.use(cors());
 
-app.get('/cors', (req, res) =>{
-  res.set('Access-Control-Allow-Origin','*')
-})
+// app.get('/cors', (req, res) =>{
+//   res.set('Access-Control-Allow-Origin','*')
+// })
 app.use(express.json());
 app.use("/", router);
 
