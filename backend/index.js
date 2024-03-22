@@ -46,7 +46,7 @@ contactEmail.verify((error) => {
   }
 });
 
-router.post("/contact", (req, res) => {
+router.post("/contact",cors(corsOptions) ,(req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const message = req.body.message;
