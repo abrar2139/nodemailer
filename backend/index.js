@@ -2,16 +2,21 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const cors = require("cors")
-
 const dotenv = require("dotenv");
 dotenv.config();
+const Port = process.env.Port
 const app = express();
 // var corsOptions = {
 //   origin: "http://localhost:3000"
 //   corsOptions
 // };
 
-app.use(cors());
+app.use(cors({
+  origin:"https://nodemailer-frontend.vercel.app",
+  methods:['GET','POST'],
+  allowedHeaders:['Content-Type','Authorization'],
+  credentials: true
+}));
 
 // app.get('/cors', (req, res) =>{
 //   res.set('Access-Control-Allow-Origin','*')
