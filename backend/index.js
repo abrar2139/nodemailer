@@ -6,17 +6,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 const Port = process.env.Port
 const app = express();
-// var corsOptions = {
-//   origin: "http://localhost:3000"
-//   corsOptions
-// };
-
-app.use(cors({
+let corsOptions = {
   origin:"https://nodemailer-frontend.vercel.app",
   methods:['GET','POST'],
   allowedHeaders:['Content-Type','Authorization'],
   credentials: true
-}));
+ };
+
+app.use(cors(corsOptions));
 
 // app.get('/cors', (req, res) =>{
 //   res.set('Access-Control-Allow-Origin','*')
