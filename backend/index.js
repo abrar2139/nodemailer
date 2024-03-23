@@ -4,7 +4,9 @@ const nodemailer = require("nodemailer");
 const cors = require("cors")
 const dotenv = require("dotenv");
 dotenv.config();
-const Port = process.env.Port
+const Port = process.env.PORT
+const Sell = process.env.SELL
+const Passkey = process.env.PASS_KEY
 const app = express();
 let corsOptions = {
   origin:"https://nodemailer-frontend.vercel.app",
@@ -33,8 +35,8 @@ app.listen(Port,
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
     auth: {
-    user: process.env.SELL,
-    pass: process.env.PASS_KEY,
+    user: Sell,
+    pass: Passkey,
   },
 });
 
@@ -52,7 +54,7 @@ router.post("/contact",(req, res) => {
   const message = req.body.message;
   const mail = {
     from: name,
-    to: process.env.SELL,
+    to: Sell,
     subject: "Contact Form Submission",
     html: `
             <p>Name: ${name}</p>
