@@ -8,14 +8,14 @@ const Port = process.env.PORT
 const Sell = process.env.SELL
 const Passkey = process.env.PASS_KEY
 const app = express();
-let corsOptions = {
-  origin:"https://nodemailer-frontend.vercel.app",
-  methods:['GET','POST'],
-  allowedHeaders:['Content-Type','Authorization'],
-  credentials: true
- };
+// let corsOptions = {
+//   origin:"https://nodemailer-frontend.vercel.app",
+//   methods:['GET','POST'],
+//   allowedHeaders:['Content-Type','Authorization'],
+//   credentials: true
+//  };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // app.get('/cors', (req, res) =>{
 //   res.set('Access-Control-Allow-Origin','*')
