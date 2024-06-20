@@ -34,6 +34,8 @@ app.listen(Port,
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
+  port:587,
+  secure: false,
     auth: {
     user: Sell,
     pass: Passkey,
